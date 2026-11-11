@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Spamcheck — a trained spam classifier, live in your browser</title>
+  <meta name="description" content="A Multinomial Naive Bayes classifier trained on 5,574 real SMS messages from the UCI SMS Spam Collection, running live in your browser. Type a message, see the verdict and which words pushed it.">
+  <meta name="theme-color" content="#0a0e14">
+  <meta property="og:title" content="Spamcheck — trained model, live in your browser">
+  <meta property="og:description" content="Trained on 5,574 real SMS messages. 98.5% accuracy. Runs in your terminal and your browser with identical outputs.">
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='12' fill='%230a0e14'/%3E%3Crect x='14' y='20' width='36' height='26' rx='4' fill='none' stroke='%2300e5a0' stroke-width='3'/%3E%3Cpath d='M16 22l16 12 16-12' fill='none' stroke='%2300e5a0' stroke-width='3'/%3E%3C/svg%3E">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header>
+    <h1>Spam<span>check</span></h1>
+    <p class="sub">A Multinomial Naive Bayes classifier trained on <b>5,574 real SMS messages</b> — running live in your browser. No server, no API key.</p>
+  </header>
+
+  <main>
+    <div class="editor">
+      <textarea id="input" spellcheck="false">URGENT! You have won a FREE entry in our £1000 prize draw. Call now to claim your cash prize!</textarea>
+      <div class="verdict-row">
+        <span class="verdict" id="verdict">—</span>
+        <div class="bar-wrap"><div class="bar" id="bar"></div><div class="bar-mark"></div></div>
+        <span class="prob" id="prob"></span>
+      </div>
+      <div class="pushers-head">what pushed the verdict</div>
+      <div class="pushers" id="pushers"></div>
+    </div>
+
+    <aside class="side">
+      <section>
+        <h2>the model</h2>
+        <div id="modelInfo" class="kv"></div>
+      </section>
+      <section>
+        <h2>try a sample</h2>
+        <div class="samples">
+          <button data-sample="spam">classic spam</button>
+          <button data-sample="ham">plain ham</button>
+          <button data-sample="tricky">borderline</button>
+        </div>
+      </section>
+      <section class="explain">
+        <h2>what this is</h2>
+        <p>Trained offline by <a href="https://github.com/amanvicky/spamcheck/blob/main/train_model.py" target="_blank" rel="noopener">a 90-line Python trainer</a> on the UCI SMS Spam Collection (research dataset, cited in the repo). The whole model is one JSON file of log probabilities — which is why this page can run it with no server.</p>
+        <p>The same computation runs in the repo's terminal CLI and here, and <a href="https://github.com/amanvicky/spamcheck/blob/main/parity-check.mjs" target="_blank" rel="noopener">a CI parity gate</a> proves both give identical outputs on real test messages.</p>
+        <p class="privacy">Nothing is uploaded. View source.</p>
+      </section>
+    </aside>
+  </main>
+
+  <footer>
+    <a href="https://github.com/amanvicky/spamcheck" target="_blank" rel="noopener">source</a>
+    <a href="https://github.com/amanvicky/tokenizer-playground" target="_blank" rel="noopener">tokenizer playground</a>
+    <a href="https://github.com/amanvicky" target="_blank" rel="noopener">more from me</a>
+  </footer>
+
+  <script type="module" src="app.js"></script>
+</body>
+</html>
