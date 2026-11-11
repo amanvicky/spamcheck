@@ -6,6 +6,8 @@ A **trained spam classifier** — Multinomial Naive Bayes learned from **5,574 r
 
 **Try it live: [amanvicky.github.io/spamcheck](https://amanvicky.github.io/spamcheck/)** — type a message, see the verdict, and *which words pushed it*.
 
+![Spamcheck live — SPAM verdict with the tokens that pushed it](docs/spamcheck-live.png)
+
 ## The numbers (held-out test split, 1,114 messages the model never saw)
 
 | Metric | Value |
