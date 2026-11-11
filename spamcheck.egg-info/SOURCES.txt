@@ -1,9 +1,0 @@
-LICENSE
-README.md
-pyproject.toml
-spamcheck.egg-info/PKG-INFO
-spamcheck.egg-info/SOURCES.txt
-spamcheck.egg-info/dependency_links.txt
-spamcheck.egg-info/entry_points.txt
-spamcheck.egg-info/top_level.txt
-tests/test_spamcheck.py

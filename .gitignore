@@ -3,3 +3,4 @@ __pycache__/
 .pytest_cache/
 parity-samples.json
 data/raw/
+spamcheck.egg-info/
